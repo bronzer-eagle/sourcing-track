@@ -1,0 +1,24 @@
+{
+  "name": "sourcing-track",
+  "version": "1.0.0",
+  "description": "A web app for Linkedin Sourcers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bronzer-eagle/sourcing-track.git"
+  },
+  "keywords": [
+    "Linkedin",
+    "node",
+    "angular"
+  ],
+  "author": "bronzer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bronzer-eagle/sourcing-track/issues"
+  },
+  "homepage": "https://github.com/bronzer-eagle/sourcing-track#readme"
+}
