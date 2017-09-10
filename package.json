@@ -4,7 +4,10 @@
   "description": "A web app for Linkedin Sourcers",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon --exec npm run babel-node app.js",
+    "start-prod": "npm run babel-node app.js",
+    "babel-node": "babel-node --presets=es2015"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/bronzer-eagle/sourcing-track/issues"
   },
-  "homepage": "https://github.com/bronzer-eagle/sourcing-track#readme"
+  "homepage": "https://github.com/bronzer-eagle/sourcing-track#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
 }
