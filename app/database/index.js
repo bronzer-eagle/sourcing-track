@@ -1,24 +1,33 @@
-import stitch from "mongodb-stitch";
+import {StitchClient} from "mongodb-stitch";
 
-const client = new stitch.StitchClient('sourcingtrack-zjdxn');
-const db = client.service('mongodb', 'mongodb-atlas').db('sourcingTrack1');
+class DbController {
 
-function connectToDB() {
+    constructor() {
+        this.client = new StitchClient('sourcingtrack-zjdxn');
+        this.db = this.client.service('mongodb', 'mongodb-atlas').db('sourcingTrack1');
+    }
 
-    return client.login()
-        .then(() =>
-            db.collection('users').updateOne({owner_id: client.authedId()}, {$set: {number: 42}}, {upsert: true})
-        )
-        .then(() =>
-            db.collection('users').find({owner_id: client.authedId()})
-        )
-        .then(docs => {
-            console.log("Found docs", docs);
-            console.log("[MongoDB Stitch] Connected to Stitch")
-        })
-        .catch(err => {
-            console.error(err)
-        });
+    init() {
+        console.log('MongoDB initialization...');
+
+        this._setDefaults();
+
+        return this.connectToDB();
+    }
+
+    _setDefaults() {
+
+    }
+
+    connectToDB() {
+        return this.client.login()
+            .then(() => {
+                console.log('MongoDB connected.')
+            })
+            .catch(err => {
+                console.error(err)
+            });
+    }
 }
 
-export {connectToDB};
+export default DbController;

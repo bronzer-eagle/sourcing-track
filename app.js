@@ -1,15 +1,26 @@
+import dotenv from 'dotenv';
 import express from 'express';
+import DbController from './app/database';
 
-import {connectToDB} from './app/database';
+if (process.env.NODE_ENV !== 'production') {
+    console.log('NODE_ENV', process.env.NODE_ENV);
+    console.log('Loading .env file');
+
+    dotenv.load();
+}
+
+console.log(process.env.PRODUCTION);
 
 const app = express();
+const dbCtrl = new DbController();
 
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    connectToDB()
+
+    dbCtrl.init()
         .then(() => {
-            res.send('Checking database connection');
+            res.send('Database connected');
         })
 });
 

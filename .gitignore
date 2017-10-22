@@ -60,3 +60,5 @@ typings/
 # Webstorm folders
 .idea
 
+/package-lock.json
+/.env
