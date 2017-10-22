@@ -7,9 +7,9 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Loading .env file');
 
     dotenv.load();
+} else {
+    console.log('NODE_ENV', process.env.NODE_ENV);
 }
-
-console.log(process.env.PRODUCTION);
 
 const app = express();
 const dbCtrl = new DbController();
